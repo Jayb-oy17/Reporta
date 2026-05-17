@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .sidebar, nav, header, .btn-print-hide {
+    display: none !important;
+  }
+  .report-card-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+}
+
+.print-only {
+  display: none;
+}
+
+/* Smooth transitions */
+.transition-theme {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  25%{
+    transform: scale(2);
+    opacity: 1;
+  }
+  50%{
+    transform: scale(1);
+    opacity: 0;
+  }
+  75%{
+    transform: scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10); 
+    opacity: 0;
+  }
+}
+
+.animate-zoomIn {
+  animation: zoomIn 4s ease-in-out forwards;
+}
